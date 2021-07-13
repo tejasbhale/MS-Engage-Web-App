@@ -1,5 +1,8 @@
 # Microsoft Engage 2021 - Video Chat App
 
+![GitHub Logo](E:\Pictures\Screenshots\Screenshot (519))
+Format: ![Alt Text](url)
+
 # Architecture 
 
 The index.js file contains all the back-end functionality. 

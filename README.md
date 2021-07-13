@@ -1,7 +1,6 @@
 # Microsoft Engage 2021 - Video Chat App
 
-![E:\Pictures\Screenshots\Screenshot (519)](E:\Pictures\Screenshots\Screenshot (519))
-Format: ![Alt Text](url)
+![alt text](https://ibb.co/vdPkFz4)
 
 # Architecture 
 

@@ -1,6 +1,6 @@
 # Microsoft Engage 2021 - Video Chat App
 
-![alt text](https://ibb.co/vdPkFz4)
+![alt text](https://i.ibb.co/bvBX0d5/Screenshot-519.png)
 
 # Architecture 
 

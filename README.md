@@ -4,9 +4,9 @@
 
 ## Architecture 
 
-##### The index.js file contains all the back-end functionality. 
+#### The index.js file contains all the back-end functionality. 
 
-##### Inside the client folder which contains all the front-end functionality - >
+#### Inside the client folder which contains all the front-end functionality - >
 
 1. The public folder has an index.html file which is the basic skeleton of the web application.
 2. The src folder contains ->

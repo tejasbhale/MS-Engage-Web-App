@@ -18,5 +18,10 @@ Inside the client folder which contains all the front-end functionality - >
         iii. ChatDrawer.jsx - Chat Drawer Component. 
         iv. EmailDialog.jsx - Email Dialog box component. 
         v. VideoGrid.jsx - Video Player component. 
-        vi. scrollbar.css - Custom redesigned scroll bar stylesheet. 
+        vi. scrollbar.css - Custom redesigned scroll bar stylesheet.
+       
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
         

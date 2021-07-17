@@ -1,5 +1,5 @@
 # Microsoft Engage 2021 - Video Chat App
-#### VIDEO DEMO - [Microsoft Teams Clone - Video Demo](https://youtu.be/TbdOseTyE_k)
+## VIDEO DEMO - [Microsoft Teams Clone - Video Demo](https://youtu.be/TbdOseTyE_k)
 
 ![alt text](https://i.ibb.co/bvBX0d5/Screenshot-519.png)
 

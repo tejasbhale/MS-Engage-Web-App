@@ -1,0 +1,83 @@
+/* Meeting detail slide-over drawer (light theme, matches Home). */
+
+.md-overlay {
+  position: fixed;
+  inset: 0;
+  background: oklch(0.25 0.02 258 / 0.35);
+  backdrop-filter: blur(2px);
+  z-index: 40;
+}
+.md-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(460px, 92vw);
+  background: #fff;
+  box-shadow: -18px 0 50px -30px rgba(20, 24, 40, 0.5);
+  display: flex;
+  flex-direction: column;
+  animation: md-slide 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  color: oklch(0.29 0.02 258);
+}
+@keyframes md-slide {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .md-panel { animation: none; }
+}
+
+.md-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px 18px 24px;
+  border-bottom: 1px solid oklch(0.93 0.006 258);
+}
+.md-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.md-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: oklch(0.5 0.02 258);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.md-close:hover { background: oklch(0.96 0.006 258); }
+.md-close .msr { font-size: 20px; }
+
+.md-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px 24px 28px;
+}
+.md-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: oklch(0.64 0.018 258);
+  margin: 0 0 10px;
+}
+.md-label + .md-label,
+.md-text + .md-label {
+  margin-top: 24px;
+}
+.md-text {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: oklch(0.42 0.02 258);
+}

@@ -1,0 +1,27 @@
+/* Editable meeting-summary textarea (used in the drawer and the post-call
+   summary card — both are light surfaces). */
+
+.summary-editor {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: oklch(0.34 0.02 258);
+  background: oklch(0.99 0.002 258);
+  border: 1px solid oklch(0.9 0.008 258);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+  resize: vertical;
+  min-height: 84px;
+  field-sizing: content; /* auto-grow on supporting browsers */
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.summary-editor:hover {
+  border-color: oklch(0.84 0.01 258);
+}
+.summary-editor:focus {
+  border-color: oklch(0.75 0.06 248);
+  background: #fff;
+}

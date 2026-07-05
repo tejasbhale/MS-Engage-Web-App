@@ -1,0 +1,446 @@
+/* Connect.Two landing page — implements the design_handoff spec. */
+
+.ct-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  background: oklch(0.981 0.008 250);
+  color: oklch(0.29 0.02 258);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes ct-rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ct-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes ct-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.55); opacity: 0.45; }
+}
+@keyframes ct-cardin {
+  from { opacity: 0; transform: translateY(14px) scale(0.99); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Header ---------- */
+
+.ct-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px clamp(22px, 5vw, 60px);
+}
+.ct-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ct-mark {
+  position: relative;
+  width: 24px;
+  height: 15px;
+}
+.ct-mark-dot {
+  position: absolute;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
+.ct-mark-dot--blue { left: 0; background: oklch(0.6 0.12 248); }
+.ct-mark-dot--coral { left: 9px; background: oklch(0.66 0.13 40); }
+.ct-wordmark-text {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.ct-wordmark-text span { color: oklch(0.6 0.12 248); }
+.ct-header-tag {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: oklch(0.56 0.018 258);
+}
+
+/* ---------- Hero ---------- */
+
+.ct-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: clamp(24px, 5vh, 64px) clamp(22px, 5vw, 60px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
+}
+.ct-copy {
+  flex: 1 1 380px;
+  max-width: 540px;
+}
+.ct-h1 {
+  margin: 0;
+  font-size: clamp(38px, 5.4vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.ct-sub {
+  margin: 24px 0 0;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: oklch(0.44 0.02 258);
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+.ct-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 38px;
+}
+
+/* The visual CTA matches the design; the real (unstylable) Google button is
+   stretched invisibly over it so clicks land on genuine Google Sign-In. */
+.ct-cta-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.ct-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: oklch(0.27 0.02 258);
+  color: #fff;
+  border: none;
+  border-radius: 13px;
+  padding: 15px 24px;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(20, 24, 40, 0.16), 0 8px 24px -12px rgba(20, 24, 40, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ct-cta-wrap:hover .ct-cta {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(20, 24, 40, 0.18), 0 14px 30px -12px rgba(20, 24, 40, 0.55);
+}
+.ct-cta-gicon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.ct-cta-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.001;
+  overflow: hidden;
+  transform: scaleY(1.2);
+  transform-origin: top;
+}
+.ct-cta-note {
+  font-size: 14px;
+  color: oklch(0.58 0.018 258);
+  line-height: 1.4;
+}
+
+/* ---------- Call card ---------- */
+
+.ct-visual {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+.ct-visual-inner {
+  width: 100%;
+  max-width: 440px;
+}
+.ct-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid oklch(0.92 0.008 258);
+  border-radius: 22px;
+  box-shadow: 0 1px 2px rgba(20, 24, 40, 0.04), 0 30px 60px -30px rgba(20, 24, 40, 0.28);
+  overflow: hidden;
+  animation: ct-cardin 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.ct-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid oklch(0.94 0.006 258);
+}
+.ct-card-people {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.ct-avatars {
+  position: relative;
+  width: 44px;
+  height: 26px;
+}
+.ct-avatar {
+  position: absolute;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+.ct-avatar--blue { left: 0; background: oklch(0.6 0.12 248); }
+.ct-avatar--coral { left: 18px; background: oklch(0.66 0.13 40); }
+.ct-card-names {
+  font-size: 14px;
+  font-weight: 500;
+  color: oklch(0.36 0.02 258);
+}
+.ct-card-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.ct-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: oklch(0.7 0.01 258);
+}
+.ct-dot--live {
+  background: oklch(0.6 0.12 248);
+  animation: ct-pulse 1.6s ease-in-out infinite;
+}
+.ct-card-time {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: oklch(0.5 0.018 258);
+  letter-spacing: 0.01em;
+}
+.ct-card-body {
+  position: relative;
+  height: 320px;
+}
+.ct-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.ct-layer--hidden-up {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+.ct-layer--hidden-down {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+/* Live captions layer */
+.ct-captions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px 22px 8px;
+  overflow: hidden;
+}
+.ct-caption {
+  line-height: 1.5;
+  margin-bottom: 13px;
+  font-size: 15.5px;
+  animation: ct-rise 0.35s ease both;
+}
+.ct-caption--current {
+  margin-bottom: 0;
+  animation: none;
+}
+.ct-caption-name {
+  font-weight: 600;
+}
+.ct-caption-text {
+  color: oklch(0.4 0.02 258);
+}
+.ct-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background: oklch(0.4 0.02 258);
+  margin-left: 2px;
+  vertical-align: -2px;
+  animation: ct-blink 1s step-end infinite;
+}
+.ct-captions-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px 18px;
+  border-top: 1px solid oklch(0.955 0.006 258);
+}
+.ct-captions-foot span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: oklch(0.62 0.018 258);
+}
+
+/* Summary layer */
+.ct-summary {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+.ct-summary-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.ct-summary-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.ct-summary-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  color: oklch(0.6 0.018 258);
+}
+.ct-summary-recap {
+  margin: 0 0 18px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: oklch(0.42 0.02 258);
+}
+.ct-summary-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: oklch(0.64 0.018 258);
+  margin-bottom: 12px;
+}
+.ct-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ct-action {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.ct-checkbox {
+  width: 17px;
+  height: 17px;
+  border-radius: 5px;
+  border: 1.5px solid oklch(0.82 0.01 258);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.ct-action-text {
+  font-size: 14px;
+  color: oklch(0.34 0.02 258);
+  flex: 1;
+}
+.ct-pill {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.ct-pill--blue {
+  color: oklch(0.5 0.12 248);
+  background: oklch(0.955 0.03 248);
+}
+.ct-pill--coral {
+  color: oklch(0.56 0.13 40);
+  background: oklch(0.955 0.04 40);
+}
+
+/* Replay */
+.ct-replay-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+.ct-replay {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: oklch(0.62 0.018 258);
+  padding: 4px 8px;
+  transition: color 0.15s ease;
+}
+.ct-replay:hover { color: oklch(0.4 0.02 258); }
+
+/* ---------- Footer ---------- */
+
+.ct-footer {
+  border-top: 1px solid oklch(0.93 0.006 258);
+  margin-top: clamp(20px, 4vh, 40px);
+}
+.ct-footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 22px clamp(22px, 5vw, 60px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 13.5px;
+  color: oklch(0.54 0.018 258);
+}
+.ct-footer-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: oklch(0.78 0.01 258);
+}
+
+/* Reduced motion: no typewriter/pulse/entrance; the summary renders directly. */
+@media (prefers-reduced-motion: reduce) {
+  .ct-card,
+  .ct-caption,
+  .ct-caret,
+  .ct-dot--live {
+    animation: none;
+  }
+  .ct-layer {
+    transition: none;
+  }
+}

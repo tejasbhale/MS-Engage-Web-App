@@ -1,0 +1,37 @@
+# === Dependencies ===
+node_modules/
+client/node_modules/
+/.pnp
+.pnp.js
+
+# === Secrets / environment (NEVER commit) ===
+.env
+.env.*
+!.env.example
+client/.env
+client/.env.*
+!client/.env.example
+*.pem
+*.key
+
+# === Build output ===
+build/
+client/build/
+/coverage
+
+# === Logs ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# === Runtime / load-test artifacts ===
+*.pid
+loadtest/*.pid
+
+# === OS / editor cruft ===
+.DS_Store
+Thumbs.db
+
+# === Claude Code personal settings (bypass mode, allowlists) ===
+.claude/settings.local.json

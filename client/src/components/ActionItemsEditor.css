@@ -1,0 +1,140 @@
+/* Action items editor — light-surface styling shared by the post-call
+   summary card and the recent-meetings drawer. */
+
+.aie-none {
+  margin: 0;
+  font-size: 14px;
+  color: oklch(0.55 0.02 258);
+}
+.aie-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.aie-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 10px 12px;
+  border: 1px solid oklch(0.94 0.006 258);
+  border-radius: 12px;
+  background: oklch(0.99 0.002 258);
+}
+.aie-check {
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1.5px solid oklch(0.82 0.01 258);
+  background: transparent;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  color: #fff;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.aie-check--done {
+  background: oklch(0.6 0.12 248);
+  border-color: oklch(0.6 0.12 248);
+}
+.aie-check .msr { font-size: 13px; }
+
+.aie-fields {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.aie-item textarea,
+.aie-item input {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-size: 14px;
+  color: oklch(0.34 0.02 258);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 5px 8px;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.aie-item textarea:hover,
+.aie-item input:hover { border-color: oklch(0.9 0.008 258); }
+.aie-item textarea:focus,
+.aie-item input:focus {
+  border-color: oklch(0.75 0.06 248);
+  background: #fff;
+}
+
+/* The task is a full-width, auto-growing textarea: the whole item is
+   always visible instead of clipped in a one-line input. */
+.aie-task {
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  line-height: 1.45;
+  min-height: 1.45em;
+  field-sizing: content; /* auto-grow (Chrome 123+); older browsers scroll */
+  overflow-wrap: break-word;
+}
+.aie-task--done {
+  text-decoration: line-through;
+  color: oklch(0.6 0.018 258) !important;
+}
+
+.aie-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.aie-meta-icon {
+  font-size: 16px;
+  color: oklch(0.62 0.018 258);
+  flex-shrink: 0;
+}
+.aie-owner {
+  width: 130px;
+  font-weight: 600;
+  color: oklch(0.5 0.12 248) !important;
+}
+.aie-owner::placeholder {
+  font-weight: 500;
+  color: oklch(0.65 0.02 258);
+}
+.aie-due {
+  font-size: 13px !important;
+  color: oklch(0.45 0.02 258) !important;
+  cursor: pointer;
+}
+.aie-due-raw {
+  font-size: 12px;
+  color: oklch(0.58 0.018 258);
+  font-style: italic;
+}
+.aie-add {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px dashed oklch(0.82 0.01 258);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: oklch(0.5 0.02 258);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.aie-add:hover {
+  border-color: oklch(0.6 0.12 248);
+  color: oklch(0.5 0.12 248);
+  background: oklch(0.985 0.004 258);
+}
+.aie-add .msr { font-size: 18px; }

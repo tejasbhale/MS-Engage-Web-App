@@ -22,6 +22,10 @@ const aiRoutes = require("./routes/ai");
 const { initSignaling } = require("./socket/signaling");
 
 const app = express();
+//Behind Render's (or any) TLS-terminating proxy: trust the first proxy hop so
+//Express sees the request as secure (required to set Secure cookies) and the
+//rate limiters key off the real client IP rather than the proxy's.
+app.set("trust proxy", 1);
 const server = require("http").createServer(app);
 
 //Sockets share the credentialed CORS policy — the session cookie rides the

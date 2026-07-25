@@ -22,10 +22,14 @@ const authLimiter = rateLimit({
   legacyHeaders: false,
 });
 
+//The client and API are served from different sites in production (e.g. the
+//Vercel client calling the Render API), so the session cookie must be
+//SameSite=None to ride cross-site fetches and the Socket.IO handshake — and
+//None requires Secure. Locally (same-site localhost over http) Lax is correct.
 const cookieOptions = {
   httpOnly: true,
   secure: IS_PROD,
-  sameSite: "lax",
+  sameSite: IS_PROD ? "none" : "lax",
 };
 
 //Effective display name for an email (displayName beats the Google name).

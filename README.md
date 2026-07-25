@@ -4,6 +4,8 @@ A rebuilt peer-to-peer video communication app: Google-authenticated 1:1 video
 calls with live transcription, an AI summarization pipeline that extracts
 structured action items, and a persistent, live-updating meeting history.
 
+TRY IT OUT AT - https://connect-twotb.vercel.app
+
 > Rebuilt from the original *Microsoft Engage 2021* video-chat submission —
 > re-architected around SOLID boundaries with authentication, real-time AI, and
 > persistence added.

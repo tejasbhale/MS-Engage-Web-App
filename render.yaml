@@ -1,0 +1,36 @@
+# Render blueprint for the Connect.Two backend (Express + Socket.IO + MongoDB).
+# Render runs it as a single always-on process, so WebSocket signaling and the
+# MongoDB change stream both work (unlike serverless).
+#
+# Deploy: Render Dashboard -> New -> Blueprint -> pick this repo.
+# Render auto-injects PORT; config.js already reads process.env.PORT.
+services:
+  - type: web
+    name: connecttwo-backend
+    runtime: node
+    plan: free # free web services cold-start after ~15 min idle (~50s first hit)
+    region: oregon # change to the region nearest your users for lower latency
+    buildCommand: npm install
+    startCommand: node index.js
+    healthCheckPath: / # returns "Server running"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Signed into session JWTs. Let Render generate a strong secret.
+      - key: JWT_SECRET
+        generateValue: true
+      # --- set these in the Render dashboard (marked sync:false = not in git) ---
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: ASSEMBLYAI_API_KEY
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        sync: false
+      # Comma-separated allowed origins. Set to your Vercel URL once the client
+      # is deployed, e.g. https://connect-two.vercel.app
+      - key: CLIENT_ORIGIN
+        sync: false
